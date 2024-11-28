@@ -62,7 +62,7 @@ function SideNavTopSection({user,setActiveTeamInfo}:any) {
         <Popover>
             <PopoverTrigger>
                 <div className='flex items-center gap-3
-      hover:bg-slate-200 p-3 rounded-lg
+      hover:bg-slate-200  dark:bg-gray-900/90 p-3 rounded-lg
       cursor-pointer
       '>
                     <Image src='/logo.svg' alt='logo'
@@ -124,11 +124,10 @@ function SideNavTopSection({user,setActiveTeamInfo}:any) {
                 </div>}
             </PopoverContent>
         </Popover>
-
         {/* All File Button  */}
         <Button variant='outline'
          className='w-full justify-start
-          gap-2 font-bold mt-8 bg-gray-100'>
+          gap-2 font-bold mt-8 bg-gray-100 dark:bg-black dark:text-white'>
             <LayoutGrid className='h-5 w-5'/>
             All Files</Button>
         </div>
