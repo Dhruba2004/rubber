@@ -10,7 +10,7 @@ const Hero = () => {
      
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center mb-[5rem]">
         <div className="mx-auto max-w-xl text-center">
-          <h1 className="text-8xl font-extrabold sm:text-4xl">
+          <h1 className="md:text-7xl font-extrabold text-4xl">
             Understand User Flow
             <strong className="font-extrabold text-red-700 sm:block">
               {" "}

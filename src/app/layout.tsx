@@ -23,7 +23,7 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en">
         <body
-          className={`${inter.className} animated-dotted-background`}
+          className={`${inter.className} dark:animated-dotted-background`}
         >
           <ThemeProvider attribute="class">
             <ConvexClientProvider>
