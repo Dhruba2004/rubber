@@ -91,24 +91,24 @@ function SideNavTopSection({user,setActiveTeamInfo}:any) {
                     ))}
                     
                 </div>
-                <Separator className='mt-2 bg-slate-100'/>
+                <Separator className='mt-2 bg-slate-100 dark:bg-gray-900'/>
                 {/* Option Section  */}
                 <div>
                     {menu.map((item,index)=>(
                         <h2 key={index} className='flex gap-2 items-center
-                        p-2 hover:bg-gray-100 rounded-lg cursor-pointer text-sm'
+                        p-2 hover:bg-gray-100 dark:bg-gray-900 rounded-lg cursor-pointer text-sm'
                         onClick={()=>onMenuClick(item)}>
                             <item.icon className='h-4 w-4'/>
                             {item.name}</h2>
                     ))}
                     <LogoutLink>
                     <h2 className='flex gap-2 items-center
-                        p-2 hover:bg-gray-100 rounded-lg cursor-pointer text-sm'>
+                        p-2 hover:bg-gray-100 dark:bg-gray-900 rounded-lg cursor-pointer text-sm'>
                             <LogOut className='h-4 w-4'/>
                             Logout</h2>
                         </LogoutLink>
                 </div>
-                <Separator className='mt-2 bg-slate-100'/>
+                <Separator className='mt-2 bg-slate-100 dark:bg-gray-900'/>
                 {/* User Info Section  */}
                {user&& <div className='mt-2 flex gap-2 items-center'>
                     <Image src={user?.picture} alt='user'
