@@ -38,13 +38,13 @@ function SideNavTopSection({user,setActiveTeamInfo}:any) {
     const [activeTeam,setActiveTeam]=useState<TEAM>();
     const [teamList,setTeamList]=useState<TEAM[]>();
     useEffect(()=>{
-        console.log(user)
         user&&getTeamList();
     },[user])
 
     useEffect(()=>{
         activeTeam?setActiveTeamInfo(activeTeam):null
     },[activeTeam])
+
     const getTeamList=async()=>{
         const result=await convex.query(api.teams.getTeam,{email:user?.email})
         console.log("TeamList",result);
