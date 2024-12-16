@@ -1,24 +1,28 @@
-
 import { useEffect, useState, useContext } from "react";
 import { useMutation, useConvex } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
-// import { FileListContext } from "@/app/_context/FileListContext";
-
 import SidenavTopSection, { TEAM } from "./SidenavTopSection";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import SidenavBottomSection from "./SidenavBottomSection";
 import { toast } from "sonner";
+import { FileListContext } from "@/app/_context/FileListContext";
 
 const Sidenav = () => {
+  const [totalFiles, setTotalFiles] = useState<Number>();
+  const { FileList, setFileList } = useContext(FileListContext);
   const [activeTeam, setActiveTeam] = useState<TEAM | any>();
+  
   useEffect(() => {
     activeTeam && getFiles();
   }, [activeTeam]);
   const { user }: any = useKindeBrowserClient();
+  
   const createFile = useMutation(api.files.createFile);
+  
   const convex = useConvex();
-  const [totalFiles, setTotalFiles] = useState<Number>();
-  //const { fileList_, setFileList_ } = useContext(FileListContext);
+  
+  
+  
   const onFileCreate = (fileName: string) => {
     console.log(fileName);
     createFile({
@@ -45,12 +49,12 @@ const Sidenav = () => {
       teamId: activeTeam?._id,
     });
     console.log(result);
-    //setFileList_(result);
-    //setTotalFiles(result?.length)
+    setFileList(result)
+    setTotalFiles(result?.length)
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900/70 h-screen fixed w-72 border-r p-6 flex flex-col">
+    <div className="dark:bg-gray-900/70 h-screen fixed w-72 border-r p-6 flex flex-col">
       <div className="flex-1">
         <SidenavTopSection
           user={user}
@@ -59,7 +63,10 @@ const Sidenav = () => {
       </div>
 
       <div>
-        <SidenavBottomSection onFileCreate={onFileCreate} totalFiles={totalFiles}/>
+        <SidenavBottomSection
+          onFileCreate={onFileCreate}
+          totalFiles={totalFiles}
+        />
       </div>
     </div>
   );

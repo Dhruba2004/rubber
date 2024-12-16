@@ -7,6 +7,8 @@ import {
 import { useConvex,useMutation } from "convex/react";
 import React, { useEffect } from "react";
 import { api } from "../../../../convex/_generated/api";
+import Header from "../dashboard/_components/Header"
+import FileList from "./_components/FileList";
 
 const Dashboard = () => {
   const convex=useConvex();
@@ -37,8 +39,9 @@ const Dashboard = () => {
 
   }
   return (
-    <div>
-      
+    <div className="p-8">
+    <Header/>
+    <FileList/>
     </div>
   );
 };

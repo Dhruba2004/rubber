@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { query, mutation } from "./_generated/server";
+
 export const createFile = mutation({
   args: {
     fileName: v.string(),
@@ -22,7 +23,8 @@ export const getFiles = query({
   handler: async (ctx, args) => {
     const result = await ctx.db
       .query("files")
-      .filter((q) => q.eq(q.field("teamId"), args.teamId));
+      .order('desc')
+      .filter((q) => q.eq(q.field("teamId"), args.teamId)).collect();
     return result;
   },
 });
